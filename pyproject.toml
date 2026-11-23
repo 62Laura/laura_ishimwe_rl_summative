@@ -1,13 +1,16 @@
 [project]
-name = "fraud-triage-rl"
+name = "medicine-drone-rl"
 version = "0.1.0"
-description = "RL fraud triage desk: DQN vs REINFORCE vs PPO vs Actor-Critic with TorchRL"
+description = "Medicine Drone: DQN vs REINFORCE vs PPO vs Actor-Critic with TorchRL"
 requires-python = ">=3.10"
 dependencies = [
     "gymnasium>=1.0",
     "numpy",
     "pygame>=2.6.1",
     "pytest",
+    "tensordict==0.15.6",
+    "torch>=2.14.1",
+    "torchrl==0.15.0",
 ]
 
 [tool.pytest.ini_options]
