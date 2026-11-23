@@ -1,0 +1,18 @@
+{
+  "algo": "reinforce",
+  "run": 8,
+  "lr": 0.001,
+  "gamma": 0.99,
+  "episodes_per_update": 8,
+  "entropy_coef": 0.05,
+  "normalize": true,
+  "hidden": 128,
+  "total_frames": 150000,
+  "seed": 0,
+  "eval_return": 1.7977845637168928,
+  "eval_crash_rate": 1.0,
+  "eval_boxes": 1.5,
+  "train_last20": 1.4919132828712462,
+  "episodes": 3008,
+  "minutes": 3.7
+}
