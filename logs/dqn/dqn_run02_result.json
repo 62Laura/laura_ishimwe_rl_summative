@@ -1,0 +1,23 @@
+{
+  "run": 2,
+  "lr": 0.0005,
+  "gamma": 0.99,
+  "batch_size": 64,
+  "buffer_size": 50000,
+  "hidden": 128,
+  "eps_init": 1.0,
+  "eps_end": 0.05,
+  "eps_steps": 30000,
+  "target_tau": 0.005,
+  "total_frames": 150000,
+  "frames_per_batch": 32,
+  "updates_per_batch": 8,
+  "warmup": 1000,
+  "seed": 0,
+  "eval_return": 46.01058362204101,
+  "eval_crash_rate": 0.03333333333333333,
+  "eval_boxes": 4.6,
+  "train_last20": 37.72028356194496,
+  "episodes": 986,
+  "minutes": 5.7
+}
