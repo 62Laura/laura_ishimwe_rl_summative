@@ -1,0 +1,21 @@
+{
+  "algo": "ppo",
+  "run": 9,
+  "lr": 0.001,
+  "gamma": 0.99,
+  "lmbda": 0.95,
+  "clip_eps": 0.2,
+  "epochs": 4,
+  "sub_batch": 64,
+  "frames_per_batch": 1024,
+  "entropy_coef": 0.05,
+  "hidden": 128,
+  "total_frames": 150000,
+  "seed": 0,
+  "eval_return": -19.497023569163826,
+  "eval_crash_rate": 0.26666666666666666,
+  "eval_boxes": 1.6666666666666667,
+  "train_last20": 4.7949126124382015,
+  "episodes": 2789,
+  "minutes": 5.4
+}
