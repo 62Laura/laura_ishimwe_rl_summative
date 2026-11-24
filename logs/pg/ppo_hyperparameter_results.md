@@ -1,0 +1,14 @@
+# PPO hyperparameter results
+
+| Run | Learning rate | Gamma | Clip | Epochs | Batch (steps) | Entropy bonus | Eval return | Crash rate | Boxes | Observed behaviour |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 0.001 | 0.99 | 0.2 | 4 | 1024 | 0.01 | -3.2 | 0.03 | 3.6 | Baseline (lr 1e-3, gamma 0.99, clip 0.2, 4 epochs, 1024-step batches): learned to deliver 3.6 boxes with only 3% crashes, but the eval return is -3.2 because the drone wastes steps. The training curve was still climbing at the end, so it needs more steps. |
+| 2 | 0.0003 | 0.99 | 0.2 | 4 | 1024 | 0.01 | -23.0 | 0.07 | 2.4 | Lr 3e-4: slower learning, with the curve staying low until about 100k steps. Eval -23.0, 2.4 boxes and 7% crashes. It is safe but too cautious, and a smaller step size needs more training. |
+| 3 | 0.0001 | 0.99 | 0.2 | 4 | 1024 | 0.01 | 1.6 | 1.00 | 1.1 | Lr 1e-4: almost flat curve. The policy barely changed in 150k steps, so it crashed in 100% of games (eval 1.6, 1.1 boxes). The learning rate is too small for this budget. |
+| 4 | 0.001 | 0.95 | 0.2 | 4 | 1024 | 0.01 | 20.6 | 0.20 | 6.5 | Gamma 0.95: the best run (eval 20.6, 6.5 boxes, 20% crashes). Its curve took off at about 20k steps and stayed highest. A slightly shorter horizon gives a clearer credit signal for deliveries, and the drone still learns to go back and recharge. |
+| 5 | 0.001 | 0.99 | 0.1 | 4 | 1024 | 0.01 | -34.2 | 0.00 | 1.5 | Clip 0.1: very cautious policy updates. 0% crashes but only 1.5 boxes and eval -34.2. The drone learned to stay safe, but not to deliver, because the small clip slows learning. |
+| 6 | 0.001 | 0.99 | 0.3 | 4 | 1024 | 0.01 | 3.6 | 0.97 | 1.6 | Clip 0.3: big policy steps. Eval 3.6 but a 97% crash rate and only 1.6 boxes. The larger clip allowed unstable updates, and it never learned the battery management. |
+| 7 | 0.001 | 0.99 | 0.2 | 8 | 1024 | 0.01 | 15.6 | 0.43 | 5.7 | 8 epochs: more learning from each batch gave a faster rise than the baseline. Eval 15.6, 5.7 boxes, 43% crashes. A good result, as the critic lets PPO reuse each batch safely. |
+| 8 | 0.001 | 0.99 | 0.2 | 4 | 2048 | 0.01 | -46.0 | 0.03 | 0.3 | 2048-step batches: the worst eval (-46.0) and only 0.3 boxes. With the same 150k steps there were half as many updates, so it barely learned (the curve is nearly flat). |
+| 9 | 0.001 | 0.99 | 0.2 | 4 | 1024 | 0.05 | -19.5 | 0.27 | 1.7 | Entropy 0.05: stayed near 0 for the whole run. Eval -19.5, 1.7 boxes. The strong randomness bonus kept the policy too random to commit to a delivery routine. |
+| 10 | 0.002 | 0.95 | 0.2 | 8 | 1024 | 0.01 | 9.0 | 0.33 | 6.1 | Combination (lr 2e-3, gamma 0.95, 8 epochs): second best curve and fast early rise, eval 9.0, 6.1 boxes (the most of any run), 33% crashes. Combining the good settings helped, but the high learning rate made it jumpier than run 4. |
