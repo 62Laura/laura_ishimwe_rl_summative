@@ -1,0 +1,7 @@
+algorithm,best_run,eval_return,crash_rate,boxes,mean_of_10_runs
+DQN,4,51.2,0.0,5.6,42.2
+REINFORCE,10,2.7,1.0,1.6,-3.9
+PPO,4,20.6,0.2,6.5,-7.5
+A2C,10,15.2,0.07,6.7,-9.7
+Random agent,-,-6.7,1.0,0.6,-
+Rule-based agent,-,117.9,0.0,17.1,-
