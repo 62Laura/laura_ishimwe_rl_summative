@@ -1,0 +1,19 @@
+{
+  "algo": "a2c",
+  "run": 3,
+  "lr": 0.002,
+  "gamma": 0.99,
+  "lmbda": 0.95,
+  "frames_per_batch": 256,
+  "entropy_coef": 0.01,
+  "critic_coef": 0.5,
+  "hidden": 128,
+  "total_frames": 150000,
+  "seed": 0,
+  "eval_return": 0.8518708332468379,
+  "eval_crash_rate": 0.9666666666666667,
+  "eval_boxes": 1.7,
+  "train_last20": 3.6436601877212524,
+  "episodes": 3204,
+  "minutes": 4.0
+}
