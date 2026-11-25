@@ -11,7 +11,7 @@
 | **Start state** | random clinics, hills and storms; the drone starts at the hub, loaded, battery 50 |
 | **End** | the day ends after 200 steps, or the drone is lost |
 
-Rendering (`environment/rendering.py`) is a retro pygame view of the map.
+Rendering (`environment/rendering.py`) draws the map with **OpenGL** (PyOpenGL), in a pygame-created window: tiles, hills, clinics with stock bars, flickering storms and a drone with spinning rotors. If no OpenGL window can be opened (for example on a server without a display), it falls back to a plain pygame drawing of the same picture, so training and tests still run.
 
 ## Install and run
 ```bash
